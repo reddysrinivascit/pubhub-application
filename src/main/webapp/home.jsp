@@ -1,51 +1,60 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="utf-8" />
-<title>Book Publishing System</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
+<title>Welcome</title>
+
 </head>
 <body>
-	<header>
-		<div id="top">
-			<div class="bg"></div>
-			<div class="row">
-				<div id="logo"></div>
-				<nav>
-					<div id="hmenu">
-						<ul>
-							<li><a href="/">Home</a></li>
-							<li><a href="/book">Book</a></li>
-						</ul>
-					</div>
-				</nav>
-				<div class="clear"></div>
-			</div>
-		</div>
-	</header>
-	<div id="header-wrapper">
-		<div class="bg"></div>
+
+	<%@ include file="../../layout/header.jsp"%>
+	<div class="container-fluid">
+
 		<div class="row">
-			<div id="header">
-				<div id="tagline">
-					<h1>Welcome to Online Book Store</h1>
-					<br />
-					<h2>Login to Shop</h2>
-					<a href="../auth"><input type="button" class="cta pie"
-						value="Login" /></a>
+			<div class="col-md-4">
+				
+				<%
+				Object object = session.getAttribute("LOGGED_IN_USER");
+				if ( object != null ){
+					response.sendRedirect("/books");
+				}
+				
+				
+				%>
+
+				<div class="portlet-title">
+					<div class="page-header">
+						<h3>Login</h3>
+					</div>
+				</div>
+				<div class="portlet-body">
+					<form action="../auth/login" method="POST">
+						<div class="form-group">
+							<label for="username">Username:</label> <input type="username"
+								class="form-control" name="username" placeholder="Enter username"
+								autofocus="autofocus" required="required" id="username"
+								 />
+						</div>
+
+						<div class="form-group">
+							<label for="password">Password :</label> <input type="password"
+								class="form-control" name="password"
+								placeholder="Enter Password" required="required" id="password"
+								 />
+						</div>
+						<div class="form-group">
+							<button type="submit" name="add" class="btn btn-success"
+								id="addLoginBtn">SIGN IN</button>
+
+							<a href="auth/register" class='btn btn-primary'>SIGN UP</a>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="bg"></div>
-	<div class="row">
-		<div id="container">
-			<div id="main">
-				<section class="home">
-									</section>
-			</div>
-			<div class="clear" style="height: 30px"></div>
-		</div>
-	</div>
-	
 </body>
 </html>

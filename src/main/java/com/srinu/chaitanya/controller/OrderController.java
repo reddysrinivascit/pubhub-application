@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
 import com.srinu.chaitanya.model.Order;
 import com.srinu.chaitanya.model.User;
 import com.srinu.chaitanya.service.OrderService;
@@ -29,7 +30,7 @@ public class OrderController {
 	@GetMapping("/myorders")
 	public String myOrders(ModelMap modelMap, HttpSession session) {
 
-		User loggedInUser = (User) session.getAttribute("USER_LOGGED");
+		User loggedInUser = (User) session.getAttribute("LOGGED_IN_USER");
 		List<Order> list = orderService.findByUserIdOrderByIdDesc(loggedInUser.getId());
 		modelMap.addAttribute("MY_ORDERS", list);
 		return "order/listmyorders";

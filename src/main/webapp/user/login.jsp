@@ -1,51 +1,51 @@
 <!DOCTYPE html>
+
 <html>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>Login</title>
+
 </head>
 <body>
-	<header>
-		<div id="top">
-			<div class="bg"></div>
-			<div class="row">
-				<div id="logo"></div>
-				<nav>
-					<div id="hmenu">
-						<ul>
-							<li><a href="/">Home</a></li>
-							<li><a href="/book">Book</a></li>
-						</ul>
+
+	<%@ include file="../../layout/header.jsp"%>
+	<div class="container-fluid">
+
+		<div class="row">
+			<div class="col-md-4">
+
+				<div class="portlet-title">
+					<div class="page-header">
+						<h3>Login</h3>
 					</div>
-				</nav>
-				<div class="clear"></div>
+				</div>
+				<div class="portlet-body">
+					<form action="../auth/login" method="POST">
+						<div class="form-group">
+							<label for="username">username :</label> <input type="text"
+								class="form-control" name="username" placeholder="Enter username"
+								autofocus="autofocus" required="required" id="username"
+								 />
+						</div>
+
+						<div class="form-group">
+							<label for="password">Password :</label> <input type="password"
+								class="form-control" name="password"
+								placeholder="Enter Password" required="required" id="password"
+								 />
+						</div>
+						<div class="form-group">
+							<button type="submit" name="add" class="btn btn-success"
+								id="addLoginBtn">SIGN IN</button>
+
+							<a href="auth/register" class='btn btn-primary'>SIGN UP</a>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
-	</header>
-	<div class="container">
-		<section id="content">
-			<form action="../auth/login" method="post">
-				<h1>Login</h1>
-				<div>
-					<input type="text" placeholder="Enter your Username" required
-						name="username" />
-				</div>
-				<div>
-					<input type="password" placeholder="Enter your Password" required
-						name="password" />
-				</div>
-				<div>
-					<input type="submit" value="Log in" />
-				</div>
-			</form>
-			<div>
-				Not a member yet ? <a href="../auth/register"><input
-					type="submit" value="REGISTER HERE" /> </a>
-			</div>
-			<br> <a href="#">Forgot Password?</a><br>
-			<div class="button"></div>
-		</section>
 	</div>
-	
+
 </body>
+
 </html>

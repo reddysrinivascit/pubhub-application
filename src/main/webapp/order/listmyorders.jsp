@@ -8,7 +8,7 @@
 </style>
 </head>
 <body>
-	
+	<%@ include file="../../layout/header.jsp"%>
 	<div class="content">
 		<div class="container-fluid">
 
@@ -41,7 +41,7 @@
 													</c:forEach>
 												</ul>
 											</td>
-											<td>Rs. ${order.totalAmount}</td>
+											<td>Rs. ${order.totalAmount }</td>
 											<td>${order.status}</td>
 											<td>${order.orderedDate }</td>
 											<c:if test="${order.status == 'ORDERED'}">
@@ -56,7 +56,7 @@
 
 									</c:forEach>
 									<tr>
-										<td><a href="../book" class="btn btn-primary">Continue Shopping</a></td>
+										<td><a href="../book/list" class="btn btn-primary">Continue Shopping</a></td>
 									</tr>
 									
 								</tbody>

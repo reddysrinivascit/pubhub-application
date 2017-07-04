@@ -1,18 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-
-
 <html>
 <head>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>List</title>
 <style>
 </style>
 </head>
 <body>
-	
+	<%@ include file="../../layout/header.jsp"%>
 	<div class="content">
 		<div class="container-fluid">
 
@@ -23,7 +19,7 @@
 					<c:if test="${empty MY_CART_ITEMS || MY_CART_ITEMS.orderItems.isEmpty()}">
 						<img src="../assets/images/empty-cart.png" width="300" />
 						<h5>Your Shopping Cart is empty</h5>
-						<a href="../book" class="btn btn-info">Continue Shopping</a>
+						<a href="../books" class="btn btn-info">Continue Shopping</a>
 					</c:if>
 					<c:if test="${!empty MY_CART_ITEMS && !MY_CART_ITEMS.orderItems.isEmpty()}">
 						<table border="1" class="table table-bordered">
@@ -44,10 +40,8 @@
 										<td>${item.book.title}</td>
 										<td>${item.quantity}</td>
 										<td>Rs.${item.book.price*item.quantity }</td>
-										<td><a href="../orderitems/remove?id=${loop.index}"
+										<td><a href="../orderItems/remove?id=${loop.index}"
 											class="btn btn-danger">Remove</a>
-											
-											
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -55,7 +49,7 @@
 
 
 						<br />
-						<a href="../book" class="btn btn-info">Continue Shopping</a>
+						<a href="../books" class="btn btn-info">Continue Shopping</a>
 
 
 					</c:if>

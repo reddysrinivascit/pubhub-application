@@ -19,17 +19,17 @@ import com.srinu.chaitanya.service.BookService;
 
 
 @Controller
-@RequestMapping("orderitems")
+@RequestMapping("orderItems")
 public class OrderItemcontroller {
 
 	@Autowired
 	private BookService bookService;
 
-	@PostMapping("/addtocart")
-	public String addToCart(@RequestParam("book_isbn") long isbn, @RequestParam("quantity") Integer Quantity,
+	@PostMapping("/addToCart")
+	public String addToCart(@RequestParam("book_id") long isbn, @RequestParam("qty") Integer Quantity,
 			HttpSession session) {
 		
-		User user = (User) session.getAttribute("USER_LOGGED");
+		User user = (User) session.getAttribute("LOGGED_IN_USER");
 
 		Order order = (Order) session.getAttribute("MY_CART_ITEMS");
 		
